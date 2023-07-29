@@ -9,25 +9,30 @@ export const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul>
-        <Link to="/">
-          <li>
-            <CottageRoundedIcon /> Home
+        <Link to="/" className="sidebar-Link">
+          <li className="list-unit">
+            <CottageRoundedIcon />
+            <p>Home</p>
           </li>
         </Link>
-        <Link to="/explore">
-          <li>
-            <ExploreRoundedIcon /> Explore
+        <Link to="/explore" className="sidebar-Link">
+          <li className="list-unit">
+            <ExploreRoundedIcon />
+            <p>Explore</p>
           </li>
         </Link>
 
-        <li>
-          <Link to="/playlist">
-            <PlaylistAddCheckRoundedIcon /> Playlists
-          </Link>
-        </li>
-        <Link to="/watchlater">
-          <li>
-            <WatchLaterRoundedIcon /> Watch Later
+        <Link to="/playlist" className="sidebar-Link">
+          <li className="list-unit">
+            <PlaylistAddCheckRoundedIcon />
+            <p>Playlists</p>
+          </li>
+        </Link>
+
+        <Link to="/watchlater" className="sidebar-Link">
+          <li className="list-unit">
+            <WatchLaterRoundedIcon />
+            <p>Watch Later</p>
           </li>
         </Link>
       </ul>

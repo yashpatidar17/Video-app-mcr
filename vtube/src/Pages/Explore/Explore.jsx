@@ -5,8 +5,9 @@ import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
 import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
 
 import "./explore.css";
+import { watchStatus } from "../../Utils/watchStatus";
 export const Explore = () => {
-  const { searchHandler, exploreData, watchLaterHandler } =
+  const { searchHandler, exploreData, watchLaterHandler,watchLater,watchLaterDeleteHandler } =
     useContext(videoContext);
   return (
     <div>
@@ -27,10 +28,17 @@ export const Explore = () => {
                   className="video-thumb-explore"
                 />
               </Link>
-              <WatchLaterOutlinedIcon
-                className="watchlaterIcon"
-                onClick={() => watchLaterHandler(item)}
-              />
+              {watchStatus(watchLater, item) ? (
+                <WatchLaterRoundedIcon
+                  className="watchlaterIcon"
+                  onClick={() => watchLaterDeleteHandler(item)}
+                />
+              ) : (
+                <WatchLaterOutlinedIcon
+                  className="watchlaterIcon"
+                  onClick={() => watchLaterHandler(item)}
+                />
+              )}
             </div>
             <div>
               <p className="video-title">{item.title}</p>

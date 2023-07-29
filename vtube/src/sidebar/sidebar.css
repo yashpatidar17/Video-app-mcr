@@ -9,9 +9,17 @@
   list-style: none;
   padding: 0;
 }
-
+.sidebar-Link{
+  text-decoration: none;
+  color: black;
+}
 .sidebar li {
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 50px;
+}
+.list-unit{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { videoContext } from "../../Context/VideoContextProvider";
 import "./video.css";
-import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
+import WatchLaterOutlinedIcon from "@mui/icons-material/WatchLaterOutlined";
 import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
 import PlaylistAddRoundedIcon from "@mui/icons-material/PlaylistAddRounded";
 import NotesRoundedIcon from "@mui/icons-material/NotesRounded";
@@ -10,13 +10,13 @@ import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
 
 import { Modal } from "../Modals/NotesModal";
+import { watchStatus } from "../../Utils/watchStatus";
 
 export const Video = () => {
   const { ID } = useParams();
-  const { video, watchLaterHandler, notesStore, setNotesStore } =
+  const { video, watchLaterHandler, notesStore, setNotesStore, watchLater,watchLaterDeleteHandler } =
     useContext(videoContext);
   const [isModalOpen, setModalOpen] = useState(false);
-
 
   const currentVideo = video.find((item) => item._id === parseInt(ID));
 
@@ -42,9 +42,14 @@ export const Video = () => {
               <p>{currentVideo.title}</p>
             </div>
             <div className="icon-container">
-              <WatchLaterOutlinedIcon
-                onClick={() => watchLaterHandler(currentVideo)}
-              />
+              {watchStatus(watchLater, currentVideo) ? (
+                <WatchLaterRoundedIcon onClick={()=> watchLaterDeleteHandler(currentVideo)}/>
+              ) : (
+                <WatchLaterOutlinedIcon
+                  onClick={() => watchLaterHandler(currentVideo)}
+                />
+              )}
+
               <PlaylistAddRoundedIcon />
               <NotesRoundedIcon onClick={handlerOpenModal} />
               <Modal
