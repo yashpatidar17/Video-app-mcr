@@ -1,0 +1,24 @@
+.video-container{
+    display:flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.moreVideo-container{
+    display:flex;
+    gap: 20px;
+}
+
+.video-image{
+    width: 200px;
+}
+
+.video-info>p{
+    color: blue;
+}
+
+.video-main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

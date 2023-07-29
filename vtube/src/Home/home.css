@@ -1,0 +1,10 @@
+.category-card{
+    display:flex;
+    flex-direction:column;
+}
+
+.category-container{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
