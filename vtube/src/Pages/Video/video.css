@@ -1,24 +1,52 @@
-.video-container{
-    display:flex;
-    flex-direction: row;
-    gap: 10px;
+.video-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
-.moreVideo-container{
-    display:flex;
-    gap: 20px;
+.moreVideo-container {
+  display: flex;
+  gap: 20px;
 }
 
-.video-image{
-    width: 200px;
+.video-image {
+  width: 200px;
 }
 
-.video-info>p{
-    color: blue;
+.video-info > p {
+  color: blue;
 }
 
-.video-main-container{
+.video-main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.video-one {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
+}
+
+.icon-container {
+  position: relative;
+}
+
+.Modal-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+
+.notes-container{
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    margin: 0 20px ;
 }
