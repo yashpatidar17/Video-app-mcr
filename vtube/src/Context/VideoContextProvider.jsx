@@ -14,7 +14,7 @@ export const VideoContextProvider = ({ children }) => {
   const watchLaterHandler = (item) => {
     setWatchLater((prev) => [...prev, item]);
     setWatchStatus(true);
-    console.log("Watch")
+    console.log("Watch");
   };
 
   const searchHandler = (e) => {
@@ -35,7 +35,7 @@ export const VideoContextProvider = ({ children }) => {
   const watchLaterDeleteHandler = (item) => {
     setWatchLater((prev) => prev.filter((i) => i._id !== item._id));
     setWatchStatus(false);
-    console.log("NoWatch")
+    console.log("NoWatch");
   };
 
   const exploreData = searchOperation();
