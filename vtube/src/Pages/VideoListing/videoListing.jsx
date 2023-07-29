@@ -4,10 +4,11 @@ import { videoContext } from "../../Context/VideoContextProvider";
 import "./videolisting.css";
 import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
 import WatchLaterOutlinedIcon from "@mui/icons-material/WatchLaterOutlined";
+import { watchStatus } from "../../Utils/watchStatus";
 
 export const VideoListing = () => {
   const { cat } = useParams();
-  const { video, watchLaterHandler, watchstatus, watchLaterDeleteHandler } =
+  const { video, watchLaterHandler, watchLaterDeleteHandler, watchLater } =
     useContext(videoContext);
   const videos = video.filter((item) => item.category === cat);
   console.log(videos);
@@ -25,10 +26,18 @@ export const VideoListing = () => {
                   className="video-thumb-explore"
                 />
               </Link>
-              <WatchLaterOutlinedIcon
-                className="watchlaterIcon"
-                onClick={() => watchLaterHandler(item)}
-              />
+
+              {watchStatus(watchLater, item) ? (
+                <WatchLaterRoundedIcon
+                  className="watchlaterIcon"
+                  onClick={() => watchLaterDeleteHandler(item)}
+                />
+              ) : (
+                <WatchLaterOutlinedIcon
+                  className="watchlaterIcon"
+                  onClick={() => watchLaterHandler(item)}
+                />
+              )}
             </div>
             <div>
               <p className="video-title">{item.title}</p>
